@@ -40,12 +40,12 @@ public class TransferController {
     public User findUserNameByAccountId(Long id){return userDao.findUserNameByAccountId(id);
 
     }
-    @RequestMapping(path = "transfers", method = RequestMethod.POST)
+    @RequestMapping(path = "transfer", method = RequestMethod.POST)
     public Transfer makeTransfer(@RequestBody IncomingTransfer transfer) {
         return transferService.makeTransfer(transfer);
     }
 
-    @RequestMapping(path = "transferHistory", method = RequestMethod.GET)
+    @RequestMapping(path = "transfers", method = RequestMethod.GET)
     public List<Transfer> findTransfers(Principal principal) {
         Long userId = userDao.findIdByUsername(principal.getName());
         return transferDao.findAllTransfers(userId);
